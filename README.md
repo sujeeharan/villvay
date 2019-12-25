@@ -1,3 +1,9 @@
+No Stylings are added. 
+Run with npm start to start the project. 
+Login and Signup works for "eve.holt@reqres.in"
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
