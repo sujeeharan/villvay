@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login';
+import Homepage from './components/Homepage';
+import { Switch, Route, Router } from 'react-router-dom';
+import Signup from './components/Signup';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      loggedIn:false,
+    }
+
+    this.handleLoggedUser = this.handleLoggedUser.bind(this);
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {this.state.loggedIn ? 
+        <Homepage loggedIn={this.handleLoggedUser}/> : 
+        <div> <Login loggedIn={this.handleLoggedUser}/> <Signup loggedIn={this.handleLoggedUser}/> </div> }
       </div>
     );
+  }
+
+  handleLoggedUser = (loggedIn) => {
+    this.setState({
+      loggedIn: loggedIn
+    })
   }
 }
 
